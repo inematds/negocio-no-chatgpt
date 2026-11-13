@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<!-- TEMPLATE projetos-landing-guia. Troque placeholders e o conteudo. NAO reescreva o CSS.
+     TRILINGUE: este arquivo e a versao PT (guia/index.html). As versoes guia/en/index.html e
+     guia/es/index.html sao copias traduzidas: lang="en"/"es", seletor com a.on no idioma,
+     hrefs do seletor ../ e ../es/ (ou ../en/), e imagens assets/ -> ../assets/. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu negocio en ChatGPT — ficha del negocio para la IA (kit gratis)</title>
+<meta name="description" content="Kit gratis (negocio-no-chatgpt): crea la ficha del negocio para la IA (texto + bloque de datos schema.org), revisa el sitio con el verificador (puntuación de 0 a 100) y consulta el paso a paso para registrarte en Business Hub de ChatGPT, solo con lo que OpenAI confirmó.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/negocio-no-chatgpt/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/negocio-no-chatgpt/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/negocio-no-chatgpt/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  nav .links a.sec{white-space:nowrap}
+  @media(max-width:1300px){nav .links{gap:14px;font-size:.86rem}}
+  @media(max-width:1700px){nav .links a.sec[href="#como-acha"],nav .links a.sec[href="#acao"]{display:none}}
+  @media(max-width:1100px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;height:auto;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+  table.n{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:10px}
+  table.n th,table.n td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+  table.n th{color:var(--amb);font-family:Sora}
+  /* gráficos comparativos (âmbar = agora/realidade, azul = antes/cenário, hachura = projeção) */
+  :root{--c-now:#BF8224;--c-old:#4D8FE0}
+  body.light{--c-now:#B9791D;--c-old:#2F6FC4}
+  .charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  @media(max-width:820px){.charts{grid-template-columns:1fr}}
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px}
+  .chart h3{margin:0 0 4px;font-family:Sora;font-size:1.02rem}
+  .chart .cap{color:var(--mut);font-size:.84rem;margin:0 0 14px}
+  .leg{display:flex;flex-wrap:wrap;gap:14px;font-size:.78rem;color:var(--mut);margin-top:10px}
+  .leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .sw-now{background:var(--c-now)} .sw-old{background:var(--c-old)}
+  .sw-proj{background:repeating-linear-gradient(45deg,var(--c-now) 0 3px,transparent 3px 7px);border:1px solid var(--c-now)}
+  .hb{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .hb .g{font-size:.78rem;color:var(--mut);margin-top:6px}
+  .hb .row{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px;align-items:center;font-size:.82rem}
+  .hb .row>span:first-child{color:var(--mut);line-height:1.25}
+  .hb .trk{position:relative;height:22px}
+  .bar{height:100%;border-radius:0 4px 4px 0;min-width:4px;display:flex;align-items:center}
+  .bar.now{background:var(--c-now)} .bar.old{background:var(--c-old)}
+  .bar.proj{background:repeating-linear-gradient(45deg,var(--c-now) 0 3px,transparent 3px 7px);border:1px solid var(--c-now)}
+  .bar b{position:absolute;left:calc(var(--w) + 8px);font-weight:600;font-size:.8rem;color:var(--txt);white-space:nowrap}
+  .vb{display:flex;align-items:flex-end;gap:6px;height:190px;border-bottom:1px solid var(--line);padding-top:22px}
+  .vb .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;position:relative}
+  .vb .col .v{font-size:.74rem;font-weight:600;color:var(--txt);margin-bottom:3px}
+  .vb .col .b{width:100%;max-width:38px;border-radius:4px 4px 0 0;min-height:2px}
+  .vb .col .b.now{background:var(--c-now)} .vb .col .b.old{background:var(--c-old)}
+  .vb .col .b.proj{background:repeating-linear-gradient(45deg,var(--c-now) 0 3px,transparent 3px 7px);border:1px solid var(--c-now);border-bottom:none}
+  .vb .gap{flex:0 0 14px;align-self:center;color:var(--mut);text-align:center}
+  .vx{display:flex;gap:6px;font-size:.72rem;color:var(--mut);margin-top:6px}
+  .vx span{flex:1;text-align:center} .vx .gap{flex:0 0 14px}
+  /* relatórios originais + gráficos originais + ajuste */
+  .reps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-bottom:46px}
+  .rep{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;color:var(--txt)}
+  .rep:hover{border-color:var(--amb)}
+  .rep .tag{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amb);font-family:Sora;font-weight:600}
+  .rep strong{font-family:Sora;font-size:1.25rem}
+  .rep span{color:var(--mut);font-size:.93rem}
+  .rep em{font-style:normal;color:var(--amb);font-weight:600;font-size:.88rem;margin-top:auto}
+  .h3o{font-family:Sora;font-size:1.35rem;margin:0 0 .2em}
+  .origs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .orig{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .orig img{display:block;width:100%;height:auto;background:#fff}
+  .orig figcaption{padding:16px 18px;display:flex;flex-direction:column;gap:8px;font-size:.9rem}
+  .orig figcaption b{font-family:Sora;font-size:1.02rem}
+  .orig figcaption span{color:var(--mut)} .orig figcaption i{font-style:normal;color:var(--amb);font-weight:600}
+  .ajuste{margin-top:52px}
+  .aj{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .ajrow{display:grid;grid-template-columns:1.5fr 1fr 1fr .9fr;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);align-items:center;font-size:.92rem}
+  .ajrow:last-child{border-bottom:none}
+  .ajrow small{display:block;color:var(--mut);font-size:.78rem;font-weight:400}
+  .ajhead{background:var(--bg2);font-family:Sora;font-weight:600;color:var(--amb);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+  .ajrow .old{color:var(--c-old);font-weight:600} .ajrow .now{color:var(--c-now);font-weight:700}
+  .ajrow .dif{font-family:Sora;font-weight:800;color:var(--amb)}
+  .aj-em{margin-top:18px;background:rgba(226,162,59,.08);border:1px solid rgba(226,162,59,.35);border-radius:14px;padding:18px 20px}
+  .aj-em small{display:block;color:var(--mut);margin-top:10px;font-size:.82rem}
+  @media(max-width:820px){.reps,.origs{grid-template-columns:1fr}
+    .ajhead{display:none}
+    .ajrow{grid-template-columns:1fr 1fr;gap:8px 14px}
+    .ajrow>span:first-child{grid-column:1/-1}
+    .ajrow .dif{grid-column:1/-1}}
+  /* cenário original com projeções por cima + explicações */
+  .cen{margin-bottom:52px}
+  .kbox{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amb);border-radius:12px;padding:16px 18px;margin:0 0 22px;font-size:.9rem}
+  .kbox span{color:var(--mut)} .kbox i:not(.sw){font-style:normal;color:var(--txt);font-weight:600}
+  .kbox .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+  .ov{position:relative;background:#fff}
+  .ov .pa{position:absolute;left:0;right:0;pointer-events:none}
+  .ov .vl{position:absolute;top:0;bottom:0;border-left:3px dashed #16a34a}
+  .ov .vl.old{border-left-color:#2563eb}
+  .ov .band{position:absolute;top:0;bottom:0;background:rgba(226,162,59,.32);border-left:2px solid #d97706;border-right:2px solid #d97706}
+  .ov .band.ted{background:repeating-linear-gradient(45deg,rgba(147,51,234,.22) 0 6px,rgba(147,51,234,.08) 6px 12px);border-color:#9333ea}
+  .ov em,.mk em{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font:800 .75rem Sora,sans-serif;color:#fff;background:#16a34a}
+  .ov em{position:absolute;top:-4px;left:50%;transform:translateX(-50%);box-shadow:0 1px 4px rgba(0,0,0,.35)}
+  .ov .vl em{left:-1.5px}
+  .ov .vl.old em,.mk em.old{background:#2563eb}
+  .ov .band em,.mk em.band{background:#d97706} .ov .band.ted em,.mk em.ted{background:#9333ea}
+  .mk{list-style:none;margin:2px 0;padding:0;display:flex;flex-direction:column;gap:6px;color:var(--mut)}
+  .mk li{position:relative;padding-left:30px;min-height:22px} .mk li>em{position:absolute;left:0;top:1px}
+  .ov .band em{top:auto;bottom:6px}
+  .exp{color:var(--mut);font-size:.86rem;margin:12px 0 0;padding-top:12px;border-top:1px dashed var(--line)}
+  .exp b{color:var(--amb)}
+  /* plano de ação + animação da janela */
+  .anim{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 22px 18px;margin-bottom:34px}
+  .an-top{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:26px}
+  .clk{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--mut)} .clk b{color:var(--amb)}
+  .dial{position:relative;width:42px;height:42px;border-radius:50%;border:3px solid var(--c-old)}
+  .dial.now{border-color:var(--c-now)}
+  .hand{position:absolute;left:50%;bottom:50%;width:3px;height:15px;margin-left:-1.5px;border-radius:2px;background:var(--txt);transform-origin:50% 100%}
+  .anim.run .hand.slow{animation:spin 3s linear infinite} .anim.run .hand.fast{animation:spin 1.765s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .replay{margin-left:auto;background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:.45em .9em;cursor:pointer;font:600 .85rem Sora,sans-serif}
+  .replay:hover{border-color:var(--amb)}
+  .an-axis{position:relative;height:34px;margin:0 8% 6px 150px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--mut)}
+  .an-axis span{position:absolute;bottom:4px;transform:translateX(-50%);text-align:center;line-height:1.15;white-space:nowrap}
+  .an-axis span:first-child{transform:none}
+  .trk2{display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px;align-items:center;margin:18px 8% 0 0}
+  .trk2 .lbl{font:600 .82rem Sora,sans-serif;color:var(--mut)}
+  .lane{position:relative;height:30px;background:var(--bg2);border-radius:8px;margin-bottom:46px}
+  .fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:8px}
+  .fill.old{background:var(--c-old)} .fill.now{background:var(--c-now)}
+  .zone{position:absolute;top:-4px;bottom:-4px;background:repeating-linear-gradient(45deg,rgba(226,162,59,.35) 0 5px,transparent 5px 10px);border:1px dashed var(--c-now);border-radius:6px}
+  .pin{position:absolute;top:-6px;bottom:-6px;border-left:3px solid var(--c-old);opacity:.25;transition:opacity .4s}
+  .pin.now{border-color:var(--c-now)} .pin.on{opacity:1}
+  .pin em{position:absolute;top:100%;margin-top:4px;font-style:normal;font-size:.72rem;font-weight:600;white-space:nowrap;transform:translateX(-100%);color:var(--txt)}
+  .pin.now em{transform:none;left:4px}
+  .pin small{position:absolute;bottom:100%;margin-bottom:2px;font-size:.72rem;color:var(--mut);white-space:nowrap;transform:translateX(-50%)}
+  .cnt{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:.8rem;color:#fff;font-weight:600;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .cnt b{font:800 1.05rem Sora,sans-serif}
+  .an-cap{color:var(--mut);font-size:.9rem;margin:0}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .vcol{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .vcol.old{border-top:4px solid var(--c-old)} .vcol.now{border-top:4px solid var(--c-now)}
+  .vcol .tag{font:600 .74rem Sora,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  .vcol h3{font-family:Sora;margin:.4em 0 .7em;font-size:1.1rem}
+  .vcol ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;color:var(--mut);font-size:.9rem}
+  .vcol li b{color:var(--txt)}
+  .steps2{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:.86rem}
+  .st .when{font:800 .78rem Sora,sans-serif;color:var(--amb);text-transform:uppercase;letter-spacing:.05em}
+  .st b{font-family:Sora;font-size:.98rem} .st>span:last-child{color:var(--mut)}
+  .st code{font-size:.8rem;color:var(--amb2)}
+  @media(max-width:1000px){.steps2{grid-template-columns:1fr 1fr}}
+  @media(max-width:700px){.vs,.steps2{grid-template-columns:1fr}
+    .an-axis{margin-left:0;margin-right:12%} .trk2{grid-template-columns:1fr;gap:24px;margin-right:12%}}
+  /* parte técnica isolada embaixo */
+  .techhead{background:var(--bg2);border-top:3px solid var(--amb);padding:58px 0 8px}
+  .techhead h2{font-family:Sora;margin:.3em 0 0}
+  .techzone{background:var(--bg2)}
+  .caso-cta{display:flex;flex-direction:column;gap:6px;margin-top:26px;background:var(--card);border:1px solid var(--amb);border-radius:16px;padding:20px 22px;color:var(--txt)}
+  .caso-cta:hover{background:var(--bg2)} .caso-cta b{font:800 1.2rem Sora,sans-serif} .caso-cta>span:last-child{color:var(--mut)}
+  .term{background:#0a0a0d;color:#e5e7eb;border:1px solid var(--line);border-radius:12px;padding:18px 20px;font:500 .86rem/1.55 "JetBrains Mono",monospace;white-space:pre-wrap;overflow-x:auto}
+  body.light .term{background:#111318;color:#e5e7eb}
+  nav .brand{white-space:nowrap}
+  ul.mut{display:flex;flex-direction:column;gap:8px;padding-left:20px}
+</style>
+</head>
+<body><nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🏪</span> Negocio en ChatGPT</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#mudou">Qué cambió</a>
+    <a class="sec" href="#brasil">¿Y en Brasil?</a>
+    <a class="sec" href="#como-acha">Cómo encuentra la IA</a>
+    <a class="sec" href="#acao">Qué hacer hoy</a>
+    <a class="sec" href="#tecnico">Kit (técnico)</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/negocio-no-chatgpt" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">negocio-no-chatgpt · kit gratis · funciona en tu computadora</span>
+      <h1>Cuando alguien le pregunte a ChatGPT dónde comprar lo que vendes, <span class="amb">tu negocio puede aparecer</span></h1>
+      <p class="lead">ChatGPT acaba de abrir un registro de negocios, y su buscador ya responde «¿dónde hay una buena panadería cerca de aquí?». Si tu sitio bloquea el robot de búsqueda de OpenAI, queda fuera de las respuestas; si esconde el teléfono en una imagen o no indica la ciudad, resulta difícil de leer. La <strong>ficha del negocio para la IA</strong> deja tu negocio listo para que la IA lo lea, y el verificador muestra qué corregir en el sitio.</p>
+      <div class="cta">
+        <a class="btn" href="#mudou">Entiéndelo en 5 minutos</a>
+        <a class="btn ghost" href="https://github.com/inematds/negocio-no-chatgpt" target="_blank" rel="noopener">Archivos del kit (GitHub)</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Tu negocio en ChatGPT: haz que la IA vea lo que vendes"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>Desde el 10/11/2026, ChatGPT tiene, en fase de prueba, un registro oficial para negocios. Pero en Brasil las tiendas físicas y los restaurantes todavía no pueden registrarse, y aun quienes pueden hacerlo solo aparecen si la IA entiende el negocio. <strong>negocio-no-chatgpt</strong> es un kit gratis para dueños de negocios que quieren que la IA los encuentre: prepara la <strong>ficha del negocio para la IA</strong> (el texto listo y el bloque de datos que se agrega al sitio) y califica tu sitio con una lista de lo que debes corregir. También incluye el paso a paso del registro, solo con lo que OpenAI ha confirmado. Solo necesitas una computadora con Python, un programa gratis que ejecuta los dos archivos del kit (las instrucciones de instalación están en la parte técnica).</p>
+  <figure style="margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Tu negocio en ChatGPT: qué cambió, quién ya puede registrarse, tu ficha lista, sitio legible para la IA, calificación de tu sitio, paso a paso del registro" loading="lazy" style="width:100%;display:block"></figure>
+</div></section>
+
+<!-- VIDEO: aquí va el explicavideo del proyecto cuando se publique -->
+
+<section id="mudou"><div class="wrap">
+  <span class="chip">Qué cambió (10/11/2026)</span>
+  <h2>ChatGPT ahora tiene <span class="amb">un registro de negocios</span></h2>
+  <p class="sub">La función se llama “Businesses in ChatGPT” (negocios en ChatGPT) y está en fase de prueba (beta). El panel donde el dueño gestiona el negocio se llama <strong>Business Hub</strong>.</p>
+  <div class="grid g3">
+    <div class="card"><h3>✋ Reclamar</h3><p>El dueño busca el negocio, solicita la ficha que ya existe o crea una, y demuestra que es el dueño por teléfono, correo electrónico del negocio, un registro en la dirección del sitio web (lo hace quien administra tu sitio) o, si tu tienda en línea está en Shopify, a través de la propia Shopify. Después viene la verificación de identidad (pueden pedir un documento y el registro de la empresa).</p></div>
+    <div class="card"><h3>✏️ Gestionar los datos</h3><p>Sitio web, descripción, categoría, logotipo, políticas de envío y cambios. Quienes venden productos pueden enviar la lista con precios y existencias.</p></div>
+    <div class="card"><h3>📊 Ver el resumen</h3><p>Cuántas veces se mencionó el negocio, cuántos clics recibió el sitio web y cuáles fueron los temas de las conversaciones durante los últimos 28 días. OpenAI dice que no comparte las conversaciones de las personas.</p></div>
+  </div>
+  <p class="mut" style="margin-top:14px">Registrarse <strong>no garantiza</strong> aparecer más ni vender más: ChatGPT sigue eligiendo qué recomendar. Tampoco necesitas anunciarte para registrarte.</p>
+</div></section>
+
+<section id="brasil"><div class="wrap">
+  <span class="chip">Quiénes ya pueden</span>
+  <h2>Y en Brasil, <span class="amb">¿ya se puede?</span></h2>
+  <p class="sub">OpenAI dice que está disponible para “negocios elegibles en los lugares donde ChatGPT está disponible”, según la ubicación, el tipo de negocio y sus verificaciones. No publicó una lista de países. Esto es lo que se sabe hoy:</p>
+  <table class="n">
+    <tr><th>Tu caso</th><th>Hoy (verificado el 13/11/2026)</th></tr>
+    <tr><td>Tienda física o restaurante en Brasil</td><td><strong>Todavía no.</strong> Por ahora solo se pueden reclamar fichas que ya existen en Estados Unidos.</td></tr>
+    <tr><td>Tienda en línea o servicio en línea</td><td><strong>Puedes intentarlo</strong> en Business Hub. La aprobación depende de las verificaciones de OpenAI.</td></tr>
+    <tr><td>Asistente del negocio dentro de ChatGPT (“Business Agent”)</td><td><strong>Solo en Estados Unidos</strong>, para tiendas en línea y servicios en línea.</td></tr>
+    <tr><td>Aparecer en las respuestas del buscador de ChatGPT</td><td><strong>Ya está disponible en cualquier país.</strong> Cualquier sitio web público puede aparecer, siempre que no bloquee el robot de búsqueda de OpenAI.</td></tr>
+  </table>
+  <p class="mut" style="margin-top:14px">En otras palabras: el registro todavía no está disponible para todos, pero el buscador de ChatGPT ya lee cualquier sitio web público que no bloquee su robot. Eso se puede corregir hoy.</p>
+</div></section>
+<section id="como-acha"><div class="wrap">
+  <span class="chip">Cómo encuentra la IA tu negocio</span>
+  <h2>Qué hace que la IA <span class="amb">te entienda</span></h2>
+  <p class="sub">La búsqueda de ChatGPT lee páginas públicas de internet. Estas son las cuatro cosas que el kit revisa en tu sitio:</p>
+  <div class="grid g2">
+    <div class="card"><h3>🚪 La puerta abierta para el robot</h3><p>Todo sitio tiene un archivo que indica qué robots pueden entrar (el robots.txt). Si bloquea al robot de búsqueda de OpenAI (el <em>OAI-SearchBot</em>), el sitio desaparece de las respuestas. Un cambio en ese archivo tarda unas 24 horas en aplicarse. Bloquear al robot de <em>entrenamiento</em> (GPTBot, que recopila textos para enseñar a la IA) no te quita de la búsqueda. Quien administra el sitio también debe permitir que el servidor acepte las direcciones de OpenAI.</p></div>
+    <div class="card"><h3>📞 Contacto y ciudad escritos</h3><p>Teléfono, correo electrónico y ciudad escritos como texto real en la página, no solo en una imagen o un botón. El verificador del kit solo cuenta lo que está escrito en texto: un teléfono dentro de una foto no cuenta.</p></div>
+    <div class="card"><h3>📝 Texto real</h3><p>Lo que vendes, dónde, el horario y el precio escritos en la página. En la revisión del kit, un sitio que solo aparece después de que un programa arma la pantalla cuenta como vacío.</p></div>
+    <div class="card"><h3>🗂️ La ficha en datos</h3><p>Un bloque de datos oculto en el sitio, en un formato que conocen los buscadores (nombre, dirección, horario, precio, preguntas frecuentes). La ficha del kit genera este bloque listo para pegar.</p></div>
+  </div>
+  <p class="mut" style="margin-top:14px">Honestidad: OpenAI no afirma que el bloque de datos o un texto mejor hagan que el negocio “suba” en ChatGPT. El kit facilita la lectura del sitio; eso no garantiza una posición.</p>
+</div></section>
+
+<section id="exemplo"><div class="wrap">
+  <span class="chip">El mismo sitio, tres calificaciones</span>
+  <h2>Una regla en el archivo del robot <span class="amb">vale 30 puntos</span></h2>
+  <p class="sub">Una panadería de ejemplo (inventada), evaluada con el verificador del kit. La calificación es del kit, de 0 a 100, no una evaluación de ChatGPT.</p>
+  <div class="grid g3">
+    <div class="card"><h3>100/100</h3><p><strong>Sitio completo.</strong> Robot de búsqueda permitido, bloque de datos, título y descripción, teléfono y ciudad escritos, texto real.</p></div>
+    <div class="card"><h3>70/100</h3><p><strong>El mismo sitio con el robot de búsqueda bloqueado.</strong> Todo está bien en la página, pero la puerta está cerrada para la IA.</p></div>
+    <div class="card"><h3>30/100</h3><p><strong>Sitio creado solo por un programa.</strong> Para el robot, la página llega sin texto, sin contacto y sin datos.</p></div>
+  </div>
+  <pre class="term" style="margin-top:22px">ficha do negócio para a IA — nota: 70/100
+
+CORRIGIR
+- OAI-SearchBot bloqueado nesta página: o robô de busca da OpenAI não pode entrar. No robots.txt, deixe estas duas linhas
+    User-agent: OAI-SearchBot
+    Allow: /
+  e apague o Disallow que barra esta página. A mudança leva cerca de 24 h para valer.
+
+Isso deixa o site fácil de ler para a IA. Não garante posição: quem escolhe o que aparecer é o ChatGPT.</pre>
+  <p class="mut" style="margin-top:10px">Fragmento de la salida real del verificador en el ejemplo “bloqueado” (el programa escribe en portugués). El robots.txt es el archivo del sitio que indica qué robots pueden entrar; “User-agent” es el nombre del robot, “Allow: /” quiere decir “puede entrar en todo” y “Disallow” es la línea que lo prohíbe: elimina la que está en el grupo del OAI-SearchBot (o en el grupo “*”, que se aplica a todos). <a href="#guia">cómo usar ↓</a></p>
+</div></section>
+
+<section id="acao"><div class="wrap">
+  <span class="chip">Qué hacer hoy</span>
+  <h2>De cero a un negocio <span class="amb">legible para la IA</span></h2>
+  <div class="phase"><div class="tag">1</div><div class="d"><strong>Crea la ficha del negocio para la IA</strong><span>Responde preguntas sencillas (nombre, qué vendes, ciudad, horario, precio, preguntas frecuentes). Obtendrás el texto listo y el bloque de datos. <a href="#guia">cómo usar ↓</a></span></div></div>
+  <div class="phase"><div class="tag">2</div><div class="d"><strong>Pon la ficha en tu sitio</strong><span>El texto en la página “Acerca de” y en los perfiles del negocio; el bloque de datos en el código del sitio (quien hace tu sitio lo pega en un minuto).</span></div></div>
+  <div class="phase"><div class="tag">3</div><div class="d"><strong>Abre la puerta al robot de búsqueda</strong><span>Revisa que el archivo del robot (robots.txt) no bloquee a OAI-SearchBot. ¿Hiciste un cambio? Espera unas 24 horas.</span></div></div>
+  <div class="phase"><div class="tag">4</div><div class="d"><strong>Pasa el sitio por el verificador</strong><span>Te da la calificación y la lista de lo que falta. Corrige y vuelve a ejecutarlo.</span></div></div>
+  <div class="phase"><div class="tag">5</div><div class="d"><strong>Regístralo cuando puedas</strong><span>Tienda en línea o servicio en línea: inténtalo hoy en Business Hub. Tienda física y restaurante en Brasil: la ficha ya queda lista para cuando abra. <a href="#cadastro">los pasos ↓</a></span></div></div>
+  <div class="grid g2" style="margin-top:22px">
+    <a class="caso-cta" href="https://inematds.github.io/site-que-vende/guia/" target="_blank" rel="noopener"><b>¿Todavía no tienes un buen sitio?</b><span>El kit “sitio que vende” te ayuda a crear uno.</span></a>
+    <a class="caso-cta" href="https://inematds.github.io/atende-leads/guia/" target="_blank" rel="noopener"><b>Ya llegaron los clientes. ¿Y ahora?</b><span>El kit “atiende leads” te ayuda a responder a quienes llegan.</span></a>
+  </div>
+</div></section>
+<div id="tecnico" class="techhead"><div class="wrap">
+  <span class="chip">Parte técnica</span>
+  <h2>El kit: <span class="amb">para quienes quieren crear la ficha y revisar el sitio</span></h2>
+  <p class="sub">A partir de aquí está la parte técnica: instalar, ejecutar los dos programas y registrarse. <strong>No necesitas</strong> esta parte para entender lo anterior.</p>
+</div></div>
+
+<div class="techzone">
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>Dos programas pequeños <span class="amb">y una guía paso a paso</span></h2>
+  <div class="grid g3">
+    <div class="card"><h3>🗂️ ficha.py</h3><p>Hace una pregunta a la vez (o lee un archivo de respuestas) y genera <code>ficha.md</code> (texto para copiar), <code>jsonld.html</code> (bloque de datos de schema.org para el <code>&lt;head&gt;</code>), <code>jsonld.json</code> y <code>checklist.md</code>. Nunca usa internet.</p></div>
+    <div class="card"><h3>🔍 checar_site.py</h3><p>Lee un archivo HTML o una URL (solo lectura, GET) y el <code>robots.txt</code>/<code>llms.txt</code> del sitio. Asigna una puntuación de 0 a 100 con OK y CORREGIR. Salida en texto o <code>--json</code>.</p></div>
+    <div class="card"><h3>📋 CADASTRO.md</h3><p>La guía paso a paso de Business Hub, basada solo en fuentes oficiales (lista en <code>FONTES.md</code>), verificada el 13/11/2026.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>De la respuesta <span class="amb">a la puntuación</span></h2>
+  <div class="flow">
+    <span>Preguntas sencillas</span><span class="arr">→</span>
+    <span>ficha.md + bloque de datos</span><span class="arr">→</span>
+    <span>Copiar en el sitio</span><span class="arr">→</span>
+    <span>checar_site.py</span><span class="arr">→</span>
+    <span>Puntuación + CORREGIR</span>
+  </div>
+  <p class="sub" style="margin-top:16px">Ponderación de la puntuación: robot de búsqueda permitido 30 · bloque de datos válido 20 · título y descripción 15 · contacto y ciudad en el texto 20 · al menos 150 palabras visibles 10 · llms.txt (opcional) 5. El verificador lee el HTML sin ejecutar programas de la página; no revisa el CSS externo ni si el servidor permite las direcciones de OpenAI.</p>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requisitos previos</span>
+  <h2>Una terminal y <span class="amb">Python 3</span></h2>
+  <p class="sub">Sin cuentas, servicios de pago ni paquetes adicionales. Los comandos se escriben en la terminal: la ventana de texto de la computadora.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🖥️ Abrir la terminal</h3><p><strong>Windows:</strong> presiona la tecla Windows, escribe <code>cmd</code> y presiona Enter (se abre el Símbolo del sistema). <strong>Mac:</strong> presiona Cmd + Espacio, escribe <code>Terminal</code> y presiona Enter. <strong>Linux:</strong> Ctrl + Alt + T.</p></div>
+    <div class="card"><h3>🐍 Python 3</h3><p><strong>Windows:</strong> instálalo desde el sitio python.org (marca “Add python.exe to PATH”) o desde Microsoft Store. Mac y Linux suelen tenerlo ya instalado. Comprueba:</p><pre><span class="k">python3 --version</span>
+<span class="c"># en Windows: py --version</span></pre></div>
+    <div class="card"><h3>📦 El kit</h3><p><a href="https://github.com/inematds/negocio-no-chatgpt/archive/refs/heads/main.zip">Descarga el ZIP</a> y extráelo (clic derecho → Extraer todo). En la terminal, escribe <code>cd</code> y un espacio, <strong>arrastra la carpeta</strong> <code>negocio-no-chatgpt-main</code> que contiene el archivo <code>ficha.py</code> (a veces Windows crea una carpeta dentro de otra con el mismo nombre: usa la de adentro) hasta la ventana y presiona Enter. Si usas git:</p><pre><span class="k">git clone https://github.com/inematds/negocio-no-chatgpt</span>
+<span class="k">cd negocio-no-chatgpt</span></pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso · paso a paso</span>
+  <h2><span class="amb">Paso a paso</span></h2>
+  <p class="sub"><strong>En Windows</strong>, reemplaza <code>python3</code> por <code>py</code> en todos los comandos (por ejemplo: <code>py ficha.py</code>). Todos los comandos se ejecutan dentro de la carpeta del kit.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Prueba el kit</h3>
+    <p>Ejecuta las pruebas (sin internet). El resultado esperado al final es <code>todos os testes passaram</code>.</p>
+    <pre><span class="k">python3 testes/run.py</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Crea tu ficha</h3>
+    <p>Responde una pregunta a la vez; deja en blanco lo que no corresponda. Para el tipo, escribe el número o el nombre (1 tienda física, 2 restaurante, 3 servicio local, 4 tienda en línea, 5 servicio en línea); “padaria” también es válido. Si una respuesta no es válida (tipo, teléfono, correo electrónico, sitio), te lo explica y vuelve a preguntar, sin perder el resto. Separa los productos con comas. Escribe el horario en el formato <code>seg-sex 9h-18h, sáb 9h-13h</code>. Después de las preguntas frecuentes, presiona Enter en una pregunta vacía para terminar. Los archivos se guardan en la carpeta <code>minha-ficha</code>, dentro de la carpeta del kit.</p>
+    <pre><span class="k">python3 ficha.py</span>
+<span class="c"># ficha del negocio para la IA generada en minha-ficha/</span>
+<span class="c"># Archivos: ficha.md, jsonld.html, jsonld.json, checklist.md</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>O usa un archivo de respuestas</h3>
+    <p>Copia el ejemplo de la panadería, abre la copia en el Bloc de notas, reemplaza los datos por los reales y genera la ficha sin responder preguntas.</p>
+    <pre><span class="k">cp exemplos/padaria/respostas.json minhas-respostas.json</span>
+<span class="c"># en Windows: copy exemplos\padaria\respostas.json minhas-respostas.json</span>
+<span class="k">python3 ficha.py --de minhas-respostas.json --saida minha-ficha</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Agrégala al sitio</h3>
+    <p>Copia el texto de <code>minha-ficha/ficha.md</code> en la página “Sobre” y en los perfiles. Copia el contenido de <code>minha-ficha/jsonld.html</code> dentro del <code>&lt;head&gt;</code> del sitio, con los mismos datos visibles en la página. Revisa el <code>robots.txt</code>:</p>
+    <pre><span class="c"># robots.txt — permite que entre el robot de búsqueda de OpenAI</span>
+<span class="s">User-agent: OAI-SearchBot</span>
+<span class="s">Allow: /</span></pre>
+    <p>¿No administras el sitio? Envíale esto a quien se encarga: <em>“¿Puedes copiar el contenido de este archivo jsonld.html dentro del &lt;head&gt; del sitio y revisar si el robots.txt permite que entre OAI-SearchBot (User-agent: OAI-SearchBot / Allow: /)?”</em></p>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Revisa el sitio con el verificador</h3>
+    <p>Por URL (consulta la página, el <code>robots.txt</code> y el <code>llms.txt</code>) o desde un archivo guardado. Primero prueba con los ejemplos del kit.</p>
+    <pre><span class="k">python3 checar_site.py exemplos/sites/bloqueado/index.html</span>  <span class="c"># puntuación 70/100</span>
+<span class="k">python3 checar_site.py https://seu-site.com.br</span>
+<span class="k">python3 checar_site.py https://seu-site.com.br --json</span></pre>
+  </div></div>
+</div></section>
+<section id="cadastro"><div class="wrap">
+  <span class="chip">Registro en Business Hub</span>
+  <h2>El paso a paso <span class="amb">oficial y resumido</span></h2>
+  <p class="sub">Solo lo que aparece en las fuentes de OpenAI, verificado el 13/11/2026. Texto completo en <a href="https://github.com/inematds/negocio-no-chatgpt/blob/main/CADASTRO.md" target="_blank" rel="noopener">CADASTRO.md</a> (en portugués).</p>
+  <div class="phase"><div class="tag">1</div><div class="d"><strong>Entra en Business Hub</strong><span>En ChatGPT: <code>chatgpt.com/business-hub</code> o desde el menú lateral en la web.</span></div></div>
+  <div class="phase"><div class="tag">2</div><div class="d"><strong>Busca el negocio</strong><span>Reclama la ficha existente o crea una (por ahora, solo hay fichas de tiendas físicas y restaurantes de EE. UU.).</span></div></div>
+  <div class="phase"><div class="tag">3</div><div class="d"><strong>Demuestra que eres el propietario</strong><span>Por teléfono, correo electrónico del negocio, registro TXT en el DNS del dominio o Shopify.</span></div></div>
+  <div class="phase"><div class="tag">4</div><div class="d"><strong>Verifica tu identidad</strong><span>A través de Persona (puede pedirte un documento oficial, el registro de la empresa y una prueba de autorización). Solo después podrás publicar cambios y ver el resumen.</span></div></div>
+  <div class="phase"><div class="tag">5</div><div class="d"><strong>Completa los datos con tu ficha</strong><span>Sitio web, descripción, categoría, logo, entrega y cambios: copia los datos de <code>ficha.md</code>. ¿Vendes productos? Envía la lista con precios e inventario (CSV, archivo alojado o Shopify).</span></div></div>
+  <p class="mut" style="margin-top:14px">Si otra persona ya reclamó la ficha: “Dispute ownership”. Si aparece “Contact support”: la ficha está bloqueada; pide ayuda. Aún no se confirmó la lista de países, la fecha para Brasil, el plazo de aprobación ni el costo futuro.</p>
+</div></section>
+
+<section id="fontes"><div class="wrap">
+  <span class="chip">Fuentes oficiales</span>
+  <h2>De dónde vienen <span class="amb">los hechos</span></h2>
+  <p class="sub">Todas son de OpenAI, verificadas el 12–13/11/2026 (lista completa con fechas en <a href="https://github.com/inematds/negocio-no-chatgpt/blob/main/FONTES.md" target="_blank" rel="noopener">FONTES.md</a> (en portugués)).</p>
+  <ul class="mut">
+    <li><a href="https://openai.com/index/introducing-businesses-chatgpt/" target="_blank" rel="noopener">Anuncio “Introducing Businesses in ChatGPT”</a> (10/11/2026)</li>
+    <li><a href="https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt" target="_blank" rel="noopener">Centro de ayuda: Setting up your business on ChatGPT</a></li>
+    <li><a href="https://openai.com/policies/businesses-in-chatgpt/" target="_blank" rel="noopener">Política de Businesses in ChatGPT</a></li>
+    <li><a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener">Descripción general de los rastreadores de OpenAI (los robots)</a></li>
+    <li><a href="https://help.openai.com/en/articles/9237897-chatgpt-search" target="_blank" rel="noopener">Centro de ayuda: Searching the web with ChatGPT</a></li>
+  </ul>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Hoja de ruta</span>
+  <h2>Próximos pasos</h2>
+  <div class="phase"><div class="tag">Hoy · 1.0</div><div class="d"><strong>Ficha, verificador y registro confirmado</strong><span>Ficha en texto + bloque de datos, verificador con puntuación de 0–100, paso a paso oficial, 86 pruebas sin conexión.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Lista de productos</strong><span>Generar el archivo CSV de productos (precio e inventario) a partir de una hoja de cálculo sencilla, para quienes venden productos.</span></div></div>
+  <div class="phase"><div class="tag">Cuando se habilite en Brasil</div><div class="d"><strong>Paso a paso actualizado</strong><span>Volver a verificar las fuentes y actualizar el registro para tiendas físicas y restaurantes.</span></div></div>
+</div></section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Python 3</div><div class="pill">schema.org</div><div class="pill">sin cuenta</div><div class="pill">gratis</div>
+    <p style="margin-top:18px">Ficha del negocio para la IA · kit negocio-no-chatgpt ·
+      <a href="https://github.com/inematds/negocio-no-chatgpt">inematds/negocio-no-chatgpt</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a> · gratis, directo en internet</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='negocio-no-chatgpt-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>

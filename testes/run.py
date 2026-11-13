@@ -36,6 +36,28 @@ class Testes(unittest.TestCase):
         self.assertEqual(json.loads(arquivos['jsonld.json']), obj)
         self.assertIn('Joinville', arquivos['ficha.md'])
 
+    def test_tipo_sinonimos_e_numero(self):
+        for texto, tipo in [('padaria', 'loja física'), ('Loja Física', 'loja física'), ('2', 'restaurante'),
+                            ('Pizzaria', 'restaurante'), ('oficina', 'serviço local'), ('e-commerce', 'loja virtual'),
+                            ('serviço online', 'serviço online')]:
+            self.assertEqual(ficha.normalizar_tipo(texto), tipo, texto)
+        self.assertIsNone(ficha.normalizar_tipo('nave espacial'))
+
+    def test_json_aceita_sinonimo_de_tipo(self):
+        obj, _ = self.gerar(dict(BASE, tipo='padaria'))
+        self.assertEqual(obj['@graph'][0]['@type'], 'Store')
+
+    def test_interativo_repete_tipo_errado_sem_perder_respostas(self):
+        respostas = iter(['Padaria X', 'Pães', 'nave espacial', 'padaria', 'Pão', 'Joinville', '', 'SC', '', '',
+                          '(47) 0000-0000', '', 'sem-arroba', 'x@exemplo.com.br', '', '', '', '', '', ''])
+        saida = io.StringIO()
+        with patch('builtins.input', lambda _='': next(respostas)), redirect_stdout(saida):
+            d = ficha.interativo()
+        self.assertEqual(d['tipo'], 'loja física')
+        self.assertEqual(d['email'], 'x@exemplo.com.br')
+        self.assertIn('Responda com uma das opções', saida.getvalue())
+        self.assertIn('E-mail inválido', saida.getvalue())
+
     def test_jsonld_graph_faq(self):
         obj, _ = self.gerar()
         self.assertEqual(obj['@graph'][1]['@type'], 'FAQPage')

@@ -123,7 +123,7 @@ def avaliar(html, robots='', llms='', caminho='/', erros_aux=None):
     erros_aux = erros_aux or {}
     livre = permite(robots, 'OAI-SearchBot', caminho)
     noindex = any('noindex' in p.metas.get(k, '').lower().split(',') or re.search(r'\bnoindex\b', p.metas.get(k, ''), re.I) for k in ('robots', 'oai-searchbot'))
-    motivo = 'OAI-SearchBot bloqueado nesta página. Ajuste o grupo: User-agent: OAI-SearchBot\nAllow: / (remova regras Disallow conflitantes para esta página).'
+    motivo = 'OAI-SearchBot bloqueado nesta página: o robô de busca da OpenAI não pode entrar. No robots.txt, deixe estas duas linhas\n    User-agent: OAI-SearchBot\n    Allow: /\n  e apague o Disallow que barra esta página. A mudança leva cerca de 24 h para valer.'
     if 'robots' in erros_aux:
         motivo = 'Não foi possível conferir robots.txt: ' + erros_aux['robots'] + '. Confira o acesso e rode novamente.'
     elif noindex:

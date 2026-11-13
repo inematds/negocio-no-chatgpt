@@ -1,16 +1,30 @@
-# ficha do negócio para a IA
+# negocio-no-chatgpt — ficha do negócio para a IA
+
+[![Seu negócio no ChatGPT](guia/assets/banner.jpg)](https://inematds.github.io/negocio-no-chatgpt/guia/)
+
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
 Quando alguém perguntar ao ChatGPT onde comprar o que você vende, o seu negócio pode aparecer. A ficha do negócio para a IA deixa tudo pronto em 10 minutos.
 
-Kit público INEMA, pequeno, em Python 3, só com biblioteca padrão: sem pip, sem conta de API. O preparo dos arquivos é local; cadastro e verificações externas têm seus próprios passos e não têm prazo garantido.
+## O que é
+
+Desde 10/11/2026 o ChatGPT tem, em teste, um cadastro oficial para negócios. Mas no Brasil a loja física e o restaurante ainda não conseguem se cadastrar, e mesmo quem consegue só aparece se a IA entender o negócio. O **negocio-no-chatgpt** é um kit grátis para o dono de negócio que quer ser encontrado pela IA: ele monta a **ficha do negócio para a IA** (o texto pronto e o bloco de dados que vai no site) e dá uma nota ao seu site com a lista do que corrigir. Também traz o passo a passo do cadastro, só com o que a OpenAI confirmou. Precisa só de um computador com Python, que é grátis.
+
+## 📖 Guia de uso
+
+Guia completo (landing + passo a passo): **https://inematds.github.io/negocio-no-chatgpt/guia/**
+
+## O recurso e o Brasil
 
 **Businesses in ChatGPT** está em beta desde 10/11/2026. No **Business Hub**, negócios elegíveis podem reivindicar e verificar a ficha, atualizar informações e conectar um feed de produtos. Os fatos usados aqui vêm exclusivamente de [FONTES.md](FONTES.md).
 
 **Brasil:** lojas físicas e restaurantes ainda só podem reivindicar fichas existentes nos EUA. Negócios online podem tentar; depende das checagens da OpenAI. O Business Agent ainda é só para e-commerce e serviços online elegíveis nos EUA. Não há lista de países publicada. Cadastro não garante vendas ou posição.
 
+Kit público INEMA, pequeno, em Python 3, só com biblioteca padrão: sem pip, sem conta de API.
+
 ## Instalação
 
-Tenha Python 3 e Git instalados. Não há dependências para instalar.
+Tenha Python 3 instalado (Git é opcional: dá para [baixar o ZIP](https://github.com/inematds/negocio-no-chatgpt/archive/refs/heads/main.zip)). Não há dependências para instalar. **No Windows, troque `python3` por `py`** em todos os comandos.
 
 ```bash
 git clone https://github.com/inematds/negocio-no-chatgpt
@@ -23,7 +37,7 @@ cd negocio-no-chatgpt
 python3 ficha.py
 ```
 
-Responda uma pergunta por vez. O método **ficha do negócio para a IA** produz `ficha.md`, `jsonld.html`, `jsonld.json` e `checklist.md` em `minha-ficha/`. Revise antes de publicar. O script nunca usa rede.
+Responda uma pergunta por vez. No tipo, vale o número ou o nome (1 loja física, 2 restaurante, 3 serviço local, 4 loja virtual, 5 serviço online) e sinônimos comuns como “padaria”; resposta que não serve (tipo, telefone, e-mail, site) é perguntada de novo, sem perder o resto. O método **ficha do negócio para a IA** produz `ficha.md`, `jsonld.html`, `jsonld.json` e `checklist.md` em `minha-ficha/`. Revise antes de publicar. O script nunca usa rede.
 
 Para usar um arquivo com as mesmas chaves das perguntas, copie e edite [respostas.json](exemplos/padaria/respostas.json). Produtos/serviços são uma lista; perguntas frequentes são até cinco objetos com `pergunta` e `resposta`. Os nomes exatos das chaves estão no exemplo. Somente `nome`, `o_que_vende`, `tipo` e pelo menos um entre `cidade` e `site` são obrigatórios. Telefone, WhatsApp, e-mail e site são validados quando preenchidos.
 
@@ -86,7 +100,7 @@ python3 testes/run.py
 
 Os testes bloqueiam conexões de rede e cobrem geração, validação, horários, HTML, robots.txt, limites de leitura e redirecionamento com respostas simuladas.
 
-Guia completo: https://inematds.github.io/negocio-no-chatgpt/guia/ (previsto para outra etapa; esta entrega não cria `guia/`).
+Guia completo: https://inematds.github.io/negocio-no-chatgpt/guia/
 
 ## Kits que combinam
 

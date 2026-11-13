@@ -81,6 +81,8 @@ def validar(d):
 
 
 def gerar(d, pasta):
+    if isinstance(d, dict) and isinstance(d.get('tipo'), str) and normalizar_tipo(d['tipo']):
+        d = dict(d, tipo=normalizar_tipo(d['tipo']))
     validar(d)
     pasta = Path(pasta)
     pasta.mkdir(parents=True, exist_ok=True)
@@ -135,11 +137,53 @@ def gerar(d, pasta):
     return documento
 
 
+SINONIMOS_TIPO = {
+    'loja física': ('loja fisica', 'loja', 'padaria', 'mercado', 'mercearia', 'farmacia', 'confeitaria', 'acougue', 'papelaria', 'livraria', 'floricultura', 'pet shop', 'petshop', 'boutique', 'otica', 'lojinha', '1'),
+    'restaurante': ('restaurante', 'lanchonete', 'bar', 'cafe', 'cafeteria', 'pizzaria', 'hamburgueria', 'sorveteria', 'doceria', 'bistro', '2'),
+    'serviço local': ('servico local', 'servico', 'oficina', 'salao', 'salao de beleza', 'barbearia', 'clinica', 'consultorio', 'escritorio', 'academia', 'escola', 'estudio', 'lavanderia', 'eletricista', 'encanador', '3'),
+    'loja virtual': ('loja virtual', 'loja online', 'e-commerce', 'ecommerce', 'loja na internet', '4'),
+    'serviço online': ('servico online', 'servico pela internet', 'curso online', 'consultoria online', 'infoproduto', '5'),
+}
+
+
+def normalizar_tipo(texto):
+    """Aceita a opção escrita, o número (1–5) ou um sinônimo comum ("padaria" → loja física). None se não reconhecer."""
+    t = simples(texto).strip()
+    for tipo, nomes in SINONIMOS_TIPO.items():
+        if t == simples(tipo) or t in nomes:
+            return tipo
+    return None
+
+
+def erro_do_campo(chave, valor):
+    """Confere uma resposta na hora (modo interativo), para não perder tudo no fim."""
+    if chave in ('nome', 'o_que_vende') and not valor:
+        return 'Esta resposta é obrigatória.'
+    if chave == 'tipo':
+        return None if normalizar_tipo(valor) else 'Responda com uma das opções (ou o número): 1 loja física, 2 restaurante, 3 serviço local, 4 loja virtual, 5 serviço online.'
+    if chave in ('telefone', 'whatsapp') and valor and not re.fullmatch(r'(?:\+55\s*)?\(?[1-9]\d\)?[\s.-]*\d{4,5}[\s.-]*\d{4}', valor):
+        return 'Informe um número com DDD, como (47) 0000-0000.'
+    if chave == 'email' and valor and not re.fullmatch(r'[^\s@]+@[^\s@]+', valor):
+        return 'E-mail inválido: inclua @ e o domínio.'
+    if chave == 'site' and valor and not re.fullmatch(r'https?://[^\s/?#]+(?:[^\s]*)?', valor):
+        return 'Site inválido: comece com https:// (ex.: https://minhaloja.com.br).'
+    return None
+
+
 def interativo():
     print('ficha do negócio para a IA — deixe em branco o que não se aplica.')
     d = {}
     for chave, pergunta in PERGUNTAS:
-        valor = input(pergunta + '\n> ').strip()
+        if chave == 'tipo':
+            pergunta = 'Qual o tipo? 1 loja física · 2 restaurante · 3 serviço local · 4 loja virtual · 5 serviço online (número ou nome)'
+        while True:
+            valor = input(pergunta + '\n> ').strip()
+            erro = erro_do_campo(chave, valor)
+            if not erro:
+                break
+            print('  ' + erro)
+        if chave == 'tipo':
+            valor = normalizar_tipo(valor)
         d[chave] = [p.strip() for p in re.split(r'[;,]', valor) if p.strip()] if chave == 'produtos_servicos' else valor
     d['perguntas_frequentes'] = []
     for i in range(5):
