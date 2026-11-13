@@ -4,6 +4,8 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
+🎬 Video: https://www.youtube.com/watch?v=YUlRfOmXK1c · Short: https://youtube.com/shorts/oSKT2cQBAQw
+
 When someone asks ChatGPT where to buy what you sell, your business could show up. The business profile for AI gets everything ready in 10 minutes.
 
 ## What it is

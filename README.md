@@ -4,6 +4,8 @@
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
+🎬 Vídeo: https://www.youtube.com/watch?v=YUlRfOmXK1c · Short: https://youtube.com/shorts/oSKT2cQBAQw
+
 Quando alguém perguntar ao ChatGPT onde comprar o que você vende, o seu negócio pode aparecer. A ficha do negócio para a IA deixa tudo pronto em 10 minutos.
 
 ## O que é
