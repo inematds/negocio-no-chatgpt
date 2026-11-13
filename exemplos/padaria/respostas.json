@@ -1,0 +1,23 @@
+{
+  "nome": "Padaria Pão da Vila",
+  "o_que_vende": "Padaria fictícia com pães, bolos e lanches para o dia a dia.",
+  "tipo": "loja física",
+  "produtos_servicos": ["Pão francês", "Bolo caseiro", "Sanduíche"],
+  "cidade": "Joinville",
+  "bairro": "Vila Exemplo",
+  "estado": "SC",
+  "endereco": "Rua Fictícia, 100 — CEP 00000-000",
+  "area_atendida": "Bairro Vila Exemplo, Joinville/SC",
+  "telefone": "(47) 0000-0000",
+  "whatsapp": "",
+  "email": "padaria@exemplo.com.br",
+  "site": "https://padaria.exemplo.com.br",
+  "horario": "seg-sex 9h-18h, sáb 9h-13h",
+  "faixa_preco": "R$ 5 a R$ 80",
+  "pagamento": "Dinheiro, Pix e cartão",
+  "entrega_retirada": "Retirada no balcão; entrega fictícia no bairro mediante consulta.",
+  "perguntas_frequentes": [
+    {"pergunta": "Posso encomendar bolo?", "resposta": "Neste exemplo fictício, encomendas são combinadas pelo telefone."},
+    {"pergunta": "Abre aos domingos?", "resposta": "Não. O horário fictício é de segunda a sábado."}
+  ]
+}
